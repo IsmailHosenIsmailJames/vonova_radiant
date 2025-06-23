@@ -1,13 +1,13 @@
 import 'dart:collection';
 import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:vonova_radiant/src/do_data_found.dart';
 import 'package:vonova_radiant/src/no_internet.dart';
-import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 import 'core/in_app_update/in_app_android_update/in_app_update_android.dart';
 
@@ -38,7 +38,7 @@ class WebViewInAppState extends State<WebViewInApp> {
   Widget initWidget = const Center(child: CircularProgressIndicator());
 
   void initLastWebUrl() async {
-    String initUrl = "https://jenpharliveraid.com/";
+    String initUrl = "http://103.168.140.134:5004/";
     setState(() {
       initWidget = InAppWebView(
         key: webViewKey,
@@ -119,7 +119,6 @@ class WebViewInAppState extends State<WebViewInApp> {
 
   @override
   void initState() {
-    FlutterNativeSplash.remove();
     inAppUpdateAndroid(context);
 
     super.initState();

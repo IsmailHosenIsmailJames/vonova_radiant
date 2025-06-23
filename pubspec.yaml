@@ -11,7 +11,6 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   flutter_inappwebview: ^6.1.5
-  flutter_native_splash: ^2.4.6
   internet_connection_checker_plus: ^2.7.2
   gap: ^3.0.1
   shared_preferences: ^2.5.3
@@ -32,6 +31,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
 

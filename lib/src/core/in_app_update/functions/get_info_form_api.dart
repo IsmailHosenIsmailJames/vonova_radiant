@@ -8,7 +8,7 @@ import '../model/latest_app_info.dart';
 Future<LatestAppInfoAPIModel> getInfoFormAPI() async {
   final response = await get(
     Uri.parse(
-      "https://raw.githubusercontent.com/IsmailHosenIsmailJames/liver_aid/refs/heads/main/info.json",
+      "https://raw.githubusercontent.com/IsmailHosenIsmailJames/vonova_radiant/refs/heads/master/info.json",
     ),
   );
   log(response.body.toString());
