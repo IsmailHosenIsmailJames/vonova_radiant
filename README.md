@@ -1,16 +1,32 @@
-# vonova_radiant
+# Vonova Radiant
 
-A new Flutter project.
+An app for Vonova Radiant for patient data entry.
+
+## Project Overview
+
+This Flutter application is designed for patient data management. It includes features for handling patient information, likely with connectivity to a backend service.
+
+## Key Features & Dependencies
+
+*   **Web Content:** Uses `flutter_inappwebview` to display web content within the app.
+*   **Connectivity:** Checks for internet connectivity using `internet_connection_checker_plus`.
+*   **Local Storage:** Utilizes `shared_preferences` and `hive_flutter` for data persistence.
+*   **State Management:** Employs `get` for state management.
+*   **UI:** Incorporates `cupertino_icons` and `fluentui_system_icons` for iconography.
+*   **HTTP Requests:** Makes use of `http` and `dio` for network requests.
+*   **File & Device Access:** Leverages `path_provider`, `permission_handler`, `open_file`, `package_info_plus`, and `device_info_plus` for system interactions.
+
+## Assets
+
+*   `assets/app_logo.png`
+*   `assets/Liver_Aid.png`
+*   `assets/No_Internet_Connection.png`
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To get started with this project, ensure you have the Flutter SDK installed. Then, run the following commands:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+flutter run
+```
