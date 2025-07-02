@@ -1,13 +1,7 @@
-import 'dart:collection';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import 'package:vonova_radiant/src/app_css.dart';
-import 'package:vonova_radiant/src/do_data_found.dart';
-import 'package:vonova_radiant/src/no_internet.dart';
 
 import 'core/in_app_update/in_app_android_update/in_app_update_android.dart';
 
@@ -101,51 +95,11 @@ class WebViewInAppState extends State<WebViewInApp> {
       onWebViewCreated: (controller) {
         _webViewController = controller;
       },
-      initialUserScripts: UnmodifiableListView<UserScript>([
-        UserScript(
-          source:
-              """
-      var style = document.createElement('style');
-      style.id = 'flutter-injected-style';
-      style.innerHTML = `$appCSS`;
-      
-      // Remove the old style if it already exists
-      var oldStyle = document.getElementById('flutter-injected-style');
-      if (oldStyle) {
-        oldStyle.remove();
-      }
-      
-      document.head.appendChild(style);
-    """,
-          injectionTime: UserScriptInjectionTime.AT_DOCUMENT_START,
-        ),
-        UserScript(
-          source:
-          """
-      var style = document.createElement('style');
-      style.id = 'flutter-injected-style';
-      style.innerHTML = `$appCSS`;
-      
-      // Remove the old style if it already exists
-      var oldStyle = document.getElementById('flutter-injected-style');
-      if (oldStyle) {
-        oldStyle.remove();
-      }
-      
-      document.head.appendChild(style);
-    """,
-          injectionTime: UserScriptInjectionTime.AT_DOCUMENT_END,
-        ),
-      ]),
       onPermissionRequest: (controller, request) async {
         return PermissionResponse(
           resources: request.resources,
           action: PermissionResponseAction.GRANT,
         );
-      },
-      onReceivedError: (controller, request, error) {
-        _pullToRefreshController?.endRefreshing();
-        _handleLoadError();
       },
       onProgressChanged: (controller, progress) {
         if (progress == 100) {
@@ -156,21 +110,6 @@ class WebViewInAppState extends State<WebViewInApp> {
         });
       },
     );
-  }
-
-  Future<bool> _isInternetAvailable() async {
-    return await InternetConnection().internetStatus ==
-        InternetStatus.connected;
-  }
-
-  Future<void> _navigateToErrorScreen(Widget errorScreen) async {
-    if (mounted) {
-      // Check if the widget is still in the tree
-      await Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => errorScreen),
-      );
-    }
   }
 
   Future<void> _attemptReload() async {
@@ -187,18 +126,6 @@ class WebViewInAppState extends State<WebViewInApp> {
         );
       }
     }
-  }
-
-  void _handleLoadError() async {
-    bool hasInternet = await _isInternetAvailable();
-    if (!hasInternet) {
-      await _navigateToErrorScreen(InternetConnectionOffNotify());
-    } else {
-      await _navigateToErrorScreen(PageNotAvailableScreen());
-    }
-    // Attempt to reload regardless of the error type after showing the error screen
-    // This allows the user to potentially get back to the webview if the issue was temporary
-    await _attemptReload();
   }
 
   @override

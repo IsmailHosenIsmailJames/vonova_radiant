@@ -6,7 +6,7 @@
 
     <application
         android:usesCleartextTraffic="true"
-        android:label="Vonova"
+        android:label="Bonova"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

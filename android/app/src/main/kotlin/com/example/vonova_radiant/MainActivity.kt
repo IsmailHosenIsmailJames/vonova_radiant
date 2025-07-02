@@ -1,4 +1,4 @@
-package com.example.vonova_radiant
+package com.bonova.radiant
 
 import io.flutter.embedding.android.FlutterActivity
 

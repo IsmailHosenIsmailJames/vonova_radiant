@@ -1,7 +1,7 @@
 name: vonova_radiant
 description: "An App for vonova_radiant for entry patient data."
 publish_to: 'none' 
-version: 1.0.0+1
+version: 1.0.3+3
 
 environment:
   sdk: ^3.8.1
