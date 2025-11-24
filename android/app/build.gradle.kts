@@ -30,12 +30,18 @@ android {
 
        defaultConfig {
         applicationId = "com.bonova.radiant"
-        minSdk = 21
+        minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
+
+     packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+     }
 
     signingConfigs {
         create("release") {
@@ -48,9 +54,13 @@ android {
 
     buildTypes {
         release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
             signingConfig = signingConfigs.getByName("release")
         }
     }
+    buildToolsVersion = "36.1.0"
 }
 
 flutter {

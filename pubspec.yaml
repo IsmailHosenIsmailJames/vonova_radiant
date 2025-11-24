@@ -1,7 +1,7 @@
 name: vonova_radiant
 description: "An App for vonova_radiant for entry patient data."
 publish_to: 'none' 
-version: 1.0.3+3
+version: 1.0.4+4
 
 environment:
   sdk: ^3.8.1
@@ -15,12 +15,12 @@ dependencies:
   gap: ^3.0.1
   shared_preferences: ^2.5.3
   get: ^5.0.0-release-candidate-9.3.2
-  package_info_plus: ^8.3.0
-  device_info_plus: ^11.5.0
-  fluttertoast: ^8.2.12
+  package_info_plus: ^9.0.0
+  device_info_plus: ^12.2.0
+  fluttertoast: ^9.0.0
   path_provider: ^2.1.5
   permission_handler: ^12.0.0+1
-  clipboard: ^0.1.3
+  clipboard: ^2.0.2
   dio: ^5.8.0+1
   open_file: ^3.5.10
   hive_flutter: ^1.1.0
@@ -30,7 +30,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   flutter_launcher_icons: ^0.14.4
 
 flutter:
